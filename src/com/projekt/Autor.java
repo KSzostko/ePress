@@ -39,4 +39,22 @@ public class Autor {
             }
         }
     }
+
+    public boolean zawrzyjUmowe(Umowa umowa) {
+        if(!umowy.contains(umowa)) {
+            umowy.add(umowa);
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean zerwijUmowe(Umowa umowa) {
+        if(umowy.contains(umowa)) {
+            umowy.remove(umowa);
+            return true;
+        }
+
+        return false;
+    }
 }
