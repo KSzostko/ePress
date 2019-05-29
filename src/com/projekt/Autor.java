@@ -21,4 +21,22 @@ public class Autor {
     public String getNazwisko() {
         return nazwisko;
     }
+
+    public List<Umowa> getUmowy() {
+        return umowy;
+    }
+
+    public void przejrzyjUmowy() {
+        int i = 1;
+        for(Umowa umowa : umowy) {
+            System.out.println("Umowa nr " + i++ + ": ");
+            if(umowa instanceof UmowaOPrace) {
+                System.out.println("umowa o prace na okres " +
+                        ((UmowaOPrace) umowa).getOkresPracy() + " dni");
+            } else {
+                System.out.println("umowa o dzielo " +
+                        ((UmowaODzielo) umowa).getDzielo());
+            }
+        }
+    }
 }
