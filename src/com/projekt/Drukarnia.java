@@ -19,4 +19,13 @@ public class Drukarnia {
     public String getTypDrukarni() {
         return typDrukarni;
     }
+
+    public void przejrzyjZlecenia() {
+        int i = 1;
+        for(ZlecenieDruku zlecenie : zlecenia) {
+            System.out.println("Zlecenie nr " + i + ": " +
+                    zlecenie.getAutor() + " autorstwa " + zlecenie.getAutor() +
+                    " w ilosci " + zlecenie.getIloscEgzemplarzy());
+        }
+    }
 }
