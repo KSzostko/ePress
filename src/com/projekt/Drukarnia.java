@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Drukarnia {
-    private List<ZlecenieDruku> zlecenia;
+    private List<Zlecenie> zlecenia;
     private String czegoNieDrukuje;
 
     public Drukarnia(String czegoNieDrukuje) {
@@ -12,7 +12,7 @@ public class Drukarnia {
         this.zlecenia = new ArrayList<>();
     }
 
-    public List<ZlecenieDruku> getZlecenia() {
+    public List<Zlecenie> getZlecenia() {
         return zlecenia;
     }
 
@@ -22,14 +22,14 @@ public class Drukarnia {
 
     public void przejrzyjZlecenia() {
         int i = 1;
-        for(ZlecenieDruku zlecenie : zlecenia) {
+        for(Zlecenie zlecenie : zlecenia) {
             System.out.println("Zlecenie nr " + i + ": " +
                     zlecenie.getAutor() + " autorstwa " + zlecenie.getAutor() +
                     " w ilosci " + zlecenie.getIloscEgzemplarzy());
         }
     }
 
-    public boolean dodajZlecenie(ZlecenieDruku zlecenie) {
+    public boolean dodajZlecenie(Zlecenie zlecenie) {
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
         if(!zlecenia.contains(zlecenie) && ((Ksiazka) pozycja).getGatunekLiteracki() == czegoNieDrukuje ) {
             zlecenia.add(zlecenie);
@@ -39,7 +39,7 @@ public class Drukarnia {
         return false;
     }
 
-    public boolean wykonajZlecenie(ZlecenieDruku zlecenie) {
+    public boolean wykonajZlecenie(Zlecenie zlecenie) {
         if(zlecenia.contains(zlecenie)) {
             zlecenia.remove(zlecenie);
             return true;
