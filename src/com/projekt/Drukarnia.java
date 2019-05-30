@@ -31,12 +31,22 @@ public class Drukarnia {
 
     public boolean dodajZlecenie(Zlecenie zlecenie) {
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
-        if(!zlecenia.contains(zlecenie) && ((Ksiazka) pozycja).getGatunekLiteracki() == czegoNieDrukuje ) {
-            zlecenia.add(zlecenie);
-            return true;
-        }
+        if(((Ksiazka) pozycja).getGatunekLiteracki() == czegoNieDrukuje ) {
+            return false;
+        } else {
+            if(zlecenia.contains(zlecenie)) {
+                int i = zlecenia.indexOf(zlecenie);
 
-        return false;
+                Zlecenie noweZlecenie = zlecenia.get(i);
+                noweZlecenie.iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
+                zlecenia.set(i, noweZlecenie);
+
+                return true;
+            } else {
+                zlecenia.add(zlecenie);
+                return true;
+            }
+        }
     }
 
     public boolean wykonajZlecenie(Zlecenie zlecenie) {

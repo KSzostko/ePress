@@ -1,9 +1,9 @@
 package com.projekt;
 
 public class Zlecenie {
-    private PozycjaLiteracka zleconaPozycja;
-    private Autor autor;
-    private int iloscEgzemplarzy;
+    protected PozycjaLiteracka zleconaPozycja;
+    protected Autor autor;
+    protected int iloscEgzemplarzy;
 
     public Zlecenie(PozycjaLiteracka zleconaPozycja, Autor autor, int iloscEgzemplarzy) {
         this.zleconaPozycja = zleconaPozycja;
