@@ -36,7 +36,6 @@ public class Drukarnia {
         } else {
             if(zlecenia.contains(zlecenie)) {
                 int i = zlecenia.indexOf(zlecenie);
-
                 Zlecenie noweZlecenie = zlecenia.get(i);
                 noweZlecenie.iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
                 zlecenia.set(i, noweZlecenie);
