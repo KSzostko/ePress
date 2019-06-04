@@ -27,4 +27,23 @@ public class Sklep {
                     + " autorstwa " + zlecenie.getAutor());
         }
     }
+
+    public void dodajDoSklepu(Zlecenie zlecenie) {
+        if(dostepnePozycje.contains(zlecenie)) {
+            int i = dostepnePozycje.indexOf(zlecenie);
+            Zlecenie noweZlecenie = dostepnePozycje.get(i);
+            noweZlecenie.iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
+        } else {
+                dostepnePozycje.add(zlecenie);
+        }
+    }
+
+    public boolean sprzedaj(Zlecenie zlecenie) {
+        // to samo do zrobienia co w metodzie dodajZlecenie w Drukarni
+        if(dostepnePozycje.contains(zlecenie)) {
+            return true;
+        }
+
+        return false;
+    }
 }
