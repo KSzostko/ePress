@@ -31,4 +31,20 @@ public class Wydawnictwo {
     public Sklep getSklep() {
         return sklep;
     }
+
+    public void przejrzyjAutorow() {
+        int i = 1;
+        for(Autor autor : dostepniAutorzy) {
+            System.out.println("Autor " + i + ": " + autor.getImie() + " " + autor.getNazwisko() +
+                    " " + autor.getUmowy());
+        }
+    }
+
+    public void przejrzyjDrukarnie() {
+        int i = 1;
+        for(Drukarnia drukarnia : drukarnie) {
+            System.out.println("Drukarnia " + i + ": " + "drukarnia nie drukuje " +
+                    drukarnia.getCzegoNieDrukuje());
+        }
+    }
 }
