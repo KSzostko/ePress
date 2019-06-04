@@ -24,7 +24,7 @@ public class Drukarnia {
         int i = 1;
         for(Zlecenie zlecenie : zlecenia) {
             System.out.println("Zlecenie nr " + i + ": " +
-                    zlecenie.getAutor() + " autorstwa " + zlecenie.getAutor() +
+                    zlecenie.getZleconaPozycja().getTytul() + " autorstwa " + zlecenie.getAutor() +
                     " w ilosci " + zlecenie.getIloscEgzemplarzy());
         }
     }

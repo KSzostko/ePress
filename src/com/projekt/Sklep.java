@@ -19,4 +19,12 @@ public class Sklep {
     public List<Zlecenie> getDostepnePozycje() {
         return dostepnePozycje;
     }
+
+    public void przejrzyjOferty() {
+        int i = 1;
+        for(Zlecenie zlecenie : dostepnePozycje) {
+            System.out.println("Pozycja nr " + i + ": " + zlecenie.getZleconaPozycja().getTytul()
+                    + " autorstwa " + zlecenie.getAutor());
+        }
+    }
 }
