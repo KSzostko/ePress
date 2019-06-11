@@ -57,4 +57,13 @@ public class Autor {
 
         return false;
     }
+
+    @Override
+    public boolean equals(Object autor) {
+        if(this.imie == ((Autor) autor).imie && this.nazwisko == ((Autor) autor).nazwisko) {
+            return true;
+        }
+        
+        return false;
+    }
 }
