@@ -53,9 +53,18 @@ public class Wydawnictwo {
                 sklep.dostepnePozycje);
     }
 
+    private boolean znajdzAutora(Autor autor) {
+        for(int i = 0; i < dostepniAutorzy.size(); i++) {
+            if(dostepniAutorzy.get(i).equals(autor)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public boolean dodajAutora(Autor autor) {
-        // trzeba zobaczyc, czy zawartosc listy umow wplywa na porownywanie
-        if(!dostepniAutorzy.contains(autor)) {
+        if(!znajdzAutora(autor)) {
             dostepniAutorzy.add(autor);
             return true;
         }
@@ -64,7 +73,7 @@ public class Wydawnictwo {
     }
 
     public boolean usunAutora(Autor autor) {
-        if(dostepniAutorzy.contains(autor)) {
+        if(znajdzAutora(autor)) {
             dostepniAutorzy.remove(autor);
             return true;
         }
