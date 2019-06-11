@@ -29,18 +29,25 @@ public class Drukarnia {
         }
     }
 
+    private int znajdzZlecenie(Zlecenie zlecenie) {
+        for(int i = 0; i < zlecenia.size(); i++) {
+            if(zlecenia.get(i).equals(zlecenie)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public boolean dodajZlecenie(Zlecenie zlecenie) {
         // trzeba zmodyfikować jak chcemy zwekszyc ilosc egzemplarzy dostepnej pozycji
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
         if(((Ksiazka) pozycja).getGatunekLiteracki() == czegoNieDrukuje ) {
             return false;
         } else {
-            if(zlecenia.contains(zlecenie)) {
-                int i = zlecenia.indexOf(zlecenie);
-                Zlecenie noweZlecenie = zlecenia.get(i);
-                noweZlecenie.iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
-                zlecenia.set(i, noweZlecenie);
-
+            int i = znajdzZlecenie(zlecenie);
+            if(i >= 0) {
+                zlecenia.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
                 return true;
             } else {
                 zlecenia.add(zlecenie);
@@ -50,7 +57,7 @@ public class Drukarnia {
     }
 
     public boolean wykonajZlecenie(Zlecenie zlecenie) {
-        if(zlecenia.contains(zlecenie)) {
+        if(znajdzZlecenie(zlecenie) >= 0) {
             zlecenia.remove(zlecenie);
             return true;
         }
