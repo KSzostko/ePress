@@ -47,4 +47,9 @@ public class Wydawnictwo {
                     drukarnia.getCzegoNieDrukuje());
         }
     }
+
+    public void przjerzyjOferteSklepu() {
+        System.out.println("Sklep " + sklep.getNazwa() + " ma w asortymencie: \t" +
+                sklep.dostepnePozycje);
+    }
 }
