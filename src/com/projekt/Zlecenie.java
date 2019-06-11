@@ -26,4 +26,14 @@ public class Zlecenie {
     public void setIloscEgzemplarzy(int iloscEgzemplarzy) {
         this.iloscEgzemplarzy = iloscEgzemplarzy;
     }
+
+    @Override
+    public boolean equals(Object zlecenie) {
+        if(((Zlecenie) zlecenie).zleconaPozycja == this.zleconaPozycja &&
+                ((Zlecenie) zlecenie).autor == this.autor) {
+            return true;
+        }
+
+        return false;
+    }
 }
