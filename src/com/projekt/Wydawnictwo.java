@@ -52,4 +52,23 @@ public class Wydawnictwo {
         System.out.println("Sklep " + sklep.getNazwa() + " ma w asortymencie: \t" +
                 sklep.dostepnePozycje);
     }
+
+    public boolean dodajAutora(Autor autor) {
+        // trzeba zobaczyc, czy zawartosc listy umow wplywa na porownywanie
+        if(!dostepniAutorzy.contains(autor)) {
+            dostepniAutorzy.add(autor);
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean usunAutora(Autor autor) {
+        if(dostepniAutorzy.contains(autor)) {
+            dostepniAutorzy.remove(autor);
+            return true;
+        }
+
+        return false;
+    }
 }
