@@ -40,7 +40,6 @@ public class Drukarnia {
     }
 
     public boolean dodajZlecenie(Zlecenie zlecenie) {
-        // trzeba zmodyfikować jak chcemy zwekszyc ilosc egzemplarzy dostepnej pozycji
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
         if(((Ksiazka) pozycja).getGatunekLiteracki() == czegoNieDrukuje ) {
             return false;
