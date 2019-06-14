@@ -62,6 +62,20 @@ public class Sklep {
         }
     }
 
-//    public boolean sprzedaj(Zlecenie zlecenie) {
-//    }
+    public boolean sprzedaj(Zlecenie zlecenie) {
+        int i = szukajProduktu(zlecenie);
+        int j = roznicaIlosci(zlecenie);
+
+        if(i >= 0) {
+            dostepnePozycje.remove(zlecenie);
+
+            return true;
+        } else if(j >= 0 && dostepnePozycje.get(j).getIloscEgzemplarzy() >= zlecenie.getIloscEgzemplarzy()) {
+            dostepnePozycje.get(j).iloscEgzemplarzy -= zlecenie.getIloscEgzemplarzy();
+
+            return true;
+        }
+
+        return false;
+    }
 }
