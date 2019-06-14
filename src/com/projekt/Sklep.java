@@ -28,22 +28,40 @@ public class Sklep {
         }
     }
 
+    private int szukajProduktu(Zlecenie zlecenie) {
+        for(int i = 0; i < dostepnePozycje.size(); i++) {
+            if(dostepnePozycje.get(i).equals(zlecenie)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    private int roznicaIlosci(Zlecenie zlecenie) {
+        for(int i = 0; i < dostepnePozycje.size(); i++) {
+            if(dostepnePozycje.get(i).getZleconaPozycja() == zlecenie.getZleconaPozycja() &&
+            dostepnePozycje.get(i).getAutor() == zlecenie.getAutor() &&
+             dostepnePozycje.get(i).getIloscEgzemplarzy() != zlecenie.getIloscEgzemplarzy()) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public void dodajDoSklepu(Zlecenie zlecenie) {
-        if(dostepnePozycje.contains(zlecenie)) {
-            int i = dostepnePozycje.indexOf(zlecenie);
-            Zlecenie noweZlecenie = dostepnePozycje.get(i);
-            noweZlecenie.iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
+        int i = szukajProduktu(zlecenie);
+        int j = roznicaIlosci(zlecenie);
+        if(i >= 0) {
+            dostepnePozycje.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
+        } else if(j >= 0) {
+            dostepnePozycje.get(j).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
         } else {
-                dostepnePozycje.add(zlecenie);
+            dostepnePozycje.add(zlecenie);
         }
     }
 
-    public boolean sprzedaj(Zlecenie zlecenie) {
-        // to samo do zrobienia co w metodzie dodajZlecenie w Drukarni
-        if(dostepnePozycje.contains(zlecenie)) {
-            return true;
-        }
-
-        return false;
-    }
+//    public boolean sprzedaj(Zlecenie zlecenie) {
+//    }
 }
