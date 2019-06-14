@@ -72,8 +72,14 @@ public class Drukarnia {
     }
 
     public boolean wykonajZlecenie(Zlecenie zlecenie) {
-        if(znajdzZlecenie(zlecenie) >= 0) {
+        int i = znajdzZlecenie(zlecenie);
+        int j = znajdzZlecenie(zlecenie);
+
+        if(i >= 0) {
             zlecenia.remove(zlecenie);
+            return true;
+        } else if(j >= 0 && zlecenia.get(j).getIloscEgzemplarzy() >= zlecenie.getIloscEgzemplarzy()) {
+            zlecenia.get(j).iloscEgzemplarzy -= zlecenie.getIloscEgzemplarzy();
             return true;
         }
 
