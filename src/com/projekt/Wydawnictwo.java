@@ -81,9 +81,7 @@ public class Wydawnictwo {
         return false;
     }
 
-    // liste drukarni chyba lepiej dodac do sklepu
-    // albo w sumie chuj wie
-    public boolean przekazDoSklepu(Zlecenie zlecenie, Drukarnia drukarnia) {
-
-    }
+//    public boolean przekazDoSklepu(Zlecenie zlecenie, Drukarnia drukarnia) {
+//
+//    }
 }

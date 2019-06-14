@@ -91,4 +91,14 @@ public class Drukarnia {
 
         return false;
     }
+
+    @Override
+    public boolean equals(Object drukarnia) {
+        if(((Drukarnia) drukarnia).getNazwaFirmy() == this.getNazwaFirmy() &&
+                ((Drukarnia) drukarnia).getCzegoNieDrukuje() == this.getCzegoNieDrukuje()) {
+            return true;
+        }
+
+        return false;
+    }
 }
