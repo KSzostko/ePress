@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Drukarnia {
+    private String nazwaFirmy;
     private List<Zlecenie> zlecenia;
     private String czegoNieDrukuje;
 
-    public Drukarnia(String czegoNieDrukuje) {
+    public Drukarnia(String nazwaFirmy, String czegoNieDrukuje) {
+        this.nazwaFirmy = nazwaFirmy;
         this.czegoNieDrukuje = czegoNieDrukuje;
         this.zlecenia = new ArrayList<>();
+    }
+
+    public String getNazwaFirmy() {
+        return nazwaFirmy;
     }
 
     public List<Zlecenie> getZlecenia() {
