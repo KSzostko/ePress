@@ -39,7 +39,7 @@ public class Drukarnia {
         return -1;
     }
 
-    // trzeba dodac funkcje co sprawdza funkcje z roznymi ilosciami egzemplarzy
+    // trzeba dodac funkcje co sprawdza zlecenia z roznymi ilosciami egzemplarzy
 
     public boolean dodajZlecenie(Zlecenie zlecenie) {
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
