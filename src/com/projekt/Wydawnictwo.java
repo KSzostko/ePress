@@ -63,14 +63,14 @@ public class Wydawnictwo {
         return false;
     }
 
-    private boolean znajdzDrukarnie(Drukarnia drukarnia) {
+    private int znajdzDrukarnie(Drukarnia drukarnia) {
         for(int i = 0; i < drukarnie.size(); i++) {
             if(drukarnie.get(i).equals(drukarnia)) {
-                return true;
+                return i;
             }
         }
 
-        return false;
+        return -1;
     }
 
     public boolean dodajAutora(Autor autor) {
@@ -92,7 +92,7 @@ public class Wydawnictwo {
     }
 
     public boolean dodajDrukarnie(Drukarnia drukarnia) {
-        if(!znajdzDrukarnie(drukarnia)) {
+        if(znajdzDrukarnie(drukarnia) >= 0) {
             drukarnie.add(drukarnia);
             return true;
         }
@@ -101,7 +101,7 @@ public class Wydawnictwo {
     }
 
     public boolean usunDrukarnie(Drukarnia drukarnia) {
-        if(znajdzDrukarnie(drukarnia)) {
+        if(znajdzDrukarnie(drukarnia) >= 0) {
             drukarnie.remove(drukarnia);
             return true;
         }
@@ -109,7 +109,18 @@ public class Wydawnictwo {
         return false;
     }
 
-//    public boolean przekazDoSklepu(Zlecenie zlecenie, Drukarnia drukarnia) {
-//
-//    }
+    public boolean przekazDoSklepu(Zlecenie zlecenie, Drukarnia drukarnia) {
+        int i = znajdzDrukarnie(drukarnia);
+
+        if(i >= 0) {
+            Drukarnia drukarniaZeZleceniami = drukarnie.get(i);
+
+            if(drukarniaZeZleceniami.wykonajZlecenie(zlecenie)) {
+                sklep.dodajDoSklepu(zlecenie);
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
