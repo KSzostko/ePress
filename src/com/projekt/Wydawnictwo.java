@@ -80,4 +80,8 @@ public class Wydawnictwo {
 
         return false;
     }
+
+//    public boolean przekazDoSklpu(Zlecenie zlecenie, Drukarnia drukarnia) {
+//
+//    }
 }

@@ -39,9 +39,11 @@ public class Drukarnia {
         return -1;
     }
 
+    // trzeba dodac funkcje co sprawdza funkcje z roznymi ilosciami egzemplarzy
+
     public boolean dodajZlecenie(Zlecenie zlecenie) {
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
-        if(((Ksiazka) pozycja).getGatunekLiteracki() == czegoNieDrukuje ) {
+        if(((Ksiazka) pozycja).getGatunekLiteracki().equals(czegoNieDrukuje)) {
             return false;
         } else {
             int i = znajdzZlecenie(zlecenie);
