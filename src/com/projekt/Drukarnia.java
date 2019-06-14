@@ -39,22 +39,36 @@ public class Drukarnia {
         return -1;
     }
 
-    // trzeba dodac funkcje co sprawdza zlecenia z roznymi ilosciami egzemplarzy
+    // czyli czy wystepuje zlecenie na tą samą pozycję, ale z inną ilością egzemplarzy
+    private int roznicaIlosci(Zlecenie zlecenie) {
+        for(int i = 0; i < zlecenia.size(); i++) {
+            if(zlecenia.get(i).getZleconaPozycja() == zlecenie.getZleconaPozycja() &&
+                    zlecenia.get(i).getAutor() == zlecenie.getAutor() &&
+                    zlecenia.get(i).getIloscEgzemplarzy() != zlecenie.getIloscEgzemplarzy()) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 
     public boolean dodajZlecenie(Zlecenie zlecenie) {
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
         if(((Ksiazka) pozycja).getGatunekLiteracki().equals(czegoNieDrukuje)) {
             return false;
-        } else {
-            int i = znajdzZlecenie(zlecenie);
-            if(i >= 0) {
-                zlecenia.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
-                return true;
-            } else {
-                zlecenia.add(zlecenie);
-                return true;
-            }
         }
+        int i = znajdzZlecenie(zlecenie);
+        int j = roznicaIlosci(zlecenie);
+
+        if(i >= 0) {
+            zlecenia.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
+        } else if(j >= 0) {
+            zlecenia.get(j).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
+        } else {
+            zlecenia.add(zlecenie);
+        }
+
+        return true;
     }
 
     public boolean wykonajZlecenie(Zlecenie zlecenie) {
