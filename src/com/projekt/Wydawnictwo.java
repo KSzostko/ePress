@@ -43,8 +43,8 @@ public class Wydawnictwo {
     public void przejrzyjDrukarnie() {
         int i = 1;
         for(Drukarnia drukarnia : drukarnie) {
-            System.out.println("Drukarnia " + i + ": " + "drukarnia nie drukuje " +
-                    drukarnia.getCzegoNieDrukuje());
+            System.out.println("Drukarnia " + i + ":  firma " + drukarnia.getNazwaFirmy()
+                    + " a drukarnia nie drukuje " + drukarnia.getCzegoNieDrukuje());
         }
     }
 
@@ -56,6 +56,16 @@ public class Wydawnictwo {
     private boolean znajdzAutora(Autor autor) {
         for(int i = 0; i < dostepniAutorzy.size(); i++) {
             if(dostepniAutorzy.get(i).equals(autor)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean znajdzDrukarnie(Drukarnia drukarnia) {
+        for(int i = 0; i < drukarnie.size(); i++) {
+            if(drukarnie.get(i).equals(drukarnia)) {
                 return true;
             }
         }
@@ -75,6 +85,24 @@ public class Wydawnictwo {
     public boolean usunAutora(Autor autor) {
         if(znajdzAutora(autor)) {
             dostepniAutorzy.remove(autor);
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean dodajDrukarnie(Drukarnia drukarnia) {
+        if(!znajdzDrukarnie(drukarnia)) {
+            drukarnie.add(drukarnia);
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean usunDrukarnie(Drukarnia drukarnia) {
+        if(znajdzDrukarnie(drukarnia)) {
+            drukarnie.remove(drukarnia);
             return true;
         }
 
