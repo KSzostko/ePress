@@ -102,6 +102,9 @@ public class Drukarnia {
 
     // w sumie mozna pomyslec tez nad od razu rozwiazaniem umowy z autorem o dzielo tutaj
     // i skrócenie okresu pracy autora
+    // ale kurde nie wiem czy nie lepiej przeniesc tych autorow jednak z powrotem do wydawnictwa
+    // bo i tak przeciez do kazdego zlecenia jest autor przypisany
+    // cos mi sie popierdolilo spróbuję potem jescze nad tym pomyśleć
     public boolean dodajZlecenie(Zlecenie zlecenie) {
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
         if(((Ksiazka) pozycja).getGatunekLiteracki().equals(czegoNieDrukuje)) {
