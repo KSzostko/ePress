@@ -139,8 +139,8 @@ public class Drukarnia {
 
     @Override
     public boolean equals(Object drukarnia) {
-        if(((Drukarnia) drukarnia).getNazwaFirmy() == this.getNazwaFirmy() &&
-                ((Drukarnia) drukarnia).getCzegoNieDrukuje() == this.getCzegoNieDrukuje()) {
+        if(((Drukarnia) drukarnia).getNazwaFirmy().equals(this.getNazwaFirmy()) &&
+                ((Drukarnia) drukarnia).getCzegoNieDrukuje().equals(this.getCzegoNieDrukuje())) {
             return true;
         }
 

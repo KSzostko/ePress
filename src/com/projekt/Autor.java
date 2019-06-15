@@ -73,7 +73,7 @@ public class Autor {
 
     @Override
     public boolean equals(Object autor) {
-        if(this.imie == ((Autor) autor).imie && this.nazwisko == ((Autor) autor).nazwisko) {
+        if(((Autor) autor).imie.equals(this.imie) && ((Autor) autor).nazwisko.equals(this.nazwisko)) {
             return true;
         }
         
