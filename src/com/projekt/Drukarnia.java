@@ -59,14 +59,14 @@ public class Drukarnia {
         return -1;
     }
 
-    private boolean znajdzAutora(Autor autor) {
+    private int znajdzAutora(Autor autor) {
         for(int i = 0; i < dostepniAutorzy.size(); i++) {
             if(dostepniAutorzy.get(i).equals(autor)) {
-                return true;
+                return i;
             }
         }
 
-        return false;
+        return -1;
     }
 
     // czyli czy wystepuje zlecenie na tą samą pozycję, ale z inną ilością egzemplarzy
@@ -83,7 +83,7 @@ public class Drukarnia {
     }
 
     public boolean dodajAutora(Autor autor) {
-        if(!znajdzAutora(autor)) {
+        if(znajdzAutora(autor) == -1) {
             dostepniAutorzy.add(autor);
             return true;
         }
@@ -92,7 +92,7 @@ public class Drukarnia {
     }
 
     public boolean usunAutora(Autor autor) {
-        if(znajdzAutora(autor)) {
+        if(znajdzAutora(autor) >= 0) {
             dostepniAutorzy.remove(autor);
             return true;
         }
@@ -107,13 +107,24 @@ public class Drukarnia {
         if(((Ksiazka) pozycja).getGatunekLiteracki().equals(czegoNieDrukuje)) {
             return false;
         }
+        // jesli nie ma zlecenia na daną pozycję, to dodajemy nowe
+        // jeśli już jest zlecenie na pozycję, to zwiększamy ilość egzemplarzy
         int i = znajdzZlecenie(zlecenie);
         int j = roznicaIlosci(zlecenie);
-        // Umowa umowa = zlecenie.getAutor().umowaTegoZlecenia
+
+        // sprawdzamy najpierw czy autor ma umowe o dzielo na ten konkrenty tytuł
+        // jesli nie to traktujemy to jako czesc umowy o prace
+        String tytul = zlecenie.getZleconaPozycja().getTytul();
+        int autor = znajdzAutora(zlecenie.getAutor());
+        int czyUmowaODzielo = zlecenie.getAutor().znajdzUmoweODzielo(tytul);
+        int czyUmowaOPrace = zlecenie.getAutor().znajdzUmoweOPrace();
 
         if(i >= 0) {
             zlecenia.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
 
+            if(czyUmowaODzielo >= 0) {
+
+            }
         } else if(j >= 0) {
             zlecenia.get(j).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
         } else {

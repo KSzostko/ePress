@@ -50,7 +50,7 @@ public class Wydawnictwo {
     }
 
     public boolean dodajDrukarnie(Drukarnia drukarnia) {
-        if(znajdzDrukarnie(drukarnia) >= 0) {
+        if(znajdzDrukarnie(drukarnia) == -1) {
             drukarnie.add(drukarnia);
             return true;
         }

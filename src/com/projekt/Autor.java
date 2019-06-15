@@ -40,10 +40,10 @@ public class Autor {
         }
     }
 
-    public int znajdzUmoweODzielo(UmowaODzielo umowa) {
+    public int znajdzUmoweODzielo(String tytul) {
         for(int i = 0; i < umowy.size(); i++) {
             if(umowy.get(i) instanceof UmowaODzielo) {
-                if(((UmowaODzielo) umowy.get(i)).getDzielo().equals(umowa.getDzielo())) {
+                if(((UmowaODzielo) umowy.get(i)).getDzielo().equals(tytul)) {
                     return i;
                 }
             }
