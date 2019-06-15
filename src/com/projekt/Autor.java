@@ -58,9 +58,14 @@ public class Autor {
         return false;
     }
 
-//    public boolean zakonczUmowe(UmowaOPrace umowa) {
-//        if(umowy.contains(umowa))
-//    }
+    public boolean zakonczUmowe(UmowaOPrace umowa) {
+        if(umowy.contains(umowa) && umowa.getOkresPracy() == 0) {
+            umowy.remove(umowa);
+            return true;
+        }
+
+        return true;
+    }
 
     @Override
     public boolean equals(Object autor) {
