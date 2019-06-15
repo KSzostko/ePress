@@ -122,9 +122,10 @@ public class Drukarnia {
         if(i >= 0) {
             zlecenia.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
 
-            if(czyUmowaODzielo >= 0) {
-
-            }
+//            if(czyUmowaODzielo >= 0) {
+//
+//                dostepniAutorzy.get(autor).zakonczUmowe()
+//            }
         } else if(j >= 0) {
             zlecenia.get(j).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
         } else {
