@@ -1,7 +1,7 @@
 package com.projekt;
 
 public class UmowaOPrace extends Umowa {
-    private int okresPracy;
+    protected int okresPracy;
 
     public UmowaOPrace(int wynagrodzenie, int okresPracy) {
         super(wynagrodzenie);

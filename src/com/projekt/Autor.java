@@ -67,6 +67,10 @@ public class Autor {
         return true;
     }
 
+    public void skrocOkresPracy(UmowaOPrace umowa) {
+        umowa.okresPracy--;
+    }
+
     @Override
     public boolean equals(Object autor) {
         if(this.imie == ((Autor) autor).imie && this.nazwisko == ((Autor) autor).nazwisko) {
