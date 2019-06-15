@@ -5,13 +5,11 @@ import java.util.List;
 
 public class Wydawnictwo {
     private String nazwaWydawnictwa;
-    private List<Autor> dostepniAutorzy;
     private List<Drukarnia> drukarnie;
     private Sklep sklep;
 
     public Wydawnictwo(String nazwaWydawnictwa, Sklep sklep) {
         this.nazwaWydawnictwa = nazwaWydawnictwa;
-        this.dostepniAutorzy = new ArrayList<>();
         this.drukarnie = new ArrayList<>();
         this.sklep = sklep;
     }
@@ -20,24 +18,12 @@ public class Wydawnictwo {
         return nazwaWydawnictwa;
     }
 
-    public List<Autor> getDostepniAutorzy() {
-        return dostepniAutorzy;
-    }
-
     public List<Drukarnia> getDrukarnie() {
         return drukarnie;
     }
 
     public Sklep getSklep() {
         return sklep;
-    }
-
-    public void przejrzyjAutorow() {
-        int i = 1;
-        for(Autor autor : dostepniAutorzy) {
-            System.out.println("Autor " + i + ": " + autor.getImie() + " " + autor.getNazwisko() +
-                    " " + autor.getUmowy());
-        }
     }
 
     public void przejrzyjDrukarnie() {
@@ -53,16 +39,6 @@ public class Wydawnictwo {
                 sklep.dostepnePozycje);
     }
 
-    private boolean znajdzAutora(Autor autor) {
-        for(int i = 0; i < dostepniAutorzy.size(); i++) {
-            if(dostepniAutorzy.get(i).equals(autor)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private int znajdzDrukarnie(Drukarnia drukarnia) {
         for(int i = 0; i < drukarnie.size(); i++) {
             if(drukarnie.get(i).equals(drukarnia)) {
@@ -71,24 +47,6 @@ public class Wydawnictwo {
         }
 
         return -1;
-    }
-
-    public boolean dodajAutora(Autor autor) {
-        if(!znajdzAutora(autor)) {
-            dostepniAutorzy.add(autor);
-            return true;
-        }
-
-        return false;
-    }
-
-    public boolean usunAutora(Autor autor) {
-        if(znajdzAutora(autor)) {
-            dostepniAutorzy.remove(autor);
-            return true;
-        }
-
-        return false;
     }
 
     public boolean dodajDrukarnie(Drukarnia drukarnia) {

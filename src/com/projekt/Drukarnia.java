@@ -6,12 +6,14 @@ import java.util.List;
 public class Drukarnia {
     private String nazwaFirmy;
     private List<Zlecenie> zlecenia;
+    private List<Autor> dostepniAutorzy;
     private String czegoNieDrukuje;
 
     public Drukarnia(String nazwaFirmy, String czegoNieDrukuje) {
         this.nazwaFirmy = nazwaFirmy;
         this.czegoNieDrukuje = czegoNieDrukuje;
         this.zlecenia = new ArrayList<>();
+        this.dostepniAutorzy = new ArrayList<>();
     }
 
     public String getNazwaFirmy() {
@@ -20,6 +22,10 @@ public class Drukarnia {
 
     public List<Zlecenie> getZlecenia() {
         return zlecenia;
+    }
+
+    public List<Autor> getDostepniAutorzy() {
+        return dostepniAutorzy;
     }
 
     public String getCzegoNieDrukuje() {
@@ -35,6 +41,14 @@ public class Drukarnia {
         }
     }
 
+    public void przejrzyjAutorow() {
+        int i = 1;
+        for(Autor autor : dostepniAutorzy) {
+            System.out.println("Autor " + i + ": " + autor.getImie() + " " + autor.getNazwisko() +
+                    " " + autor.getUmowy());
+        }
+    }
+
     private int znajdzZlecenie(Zlecenie zlecenie) {
         for(int i = 0; i < zlecenia.size(); i++) {
             if(zlecenia.get(i).equals(zlecenie)) {
@@ -43,6 +57,16 @@ public class Drukarnia {
         }
 
         return -1;
+    }
+
+    private boolean znajdzAutora(Autor autor) {
+        for(int i = 0; i < dostepniAutorzy.size(); i++) {
+            if(dostepniAutorzy.get(i).equals(autor)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // czyli czy wystepuje zlecenie na tą samą pozycję, ale z inną ilością egzemplarzy
@@ -58,6 +82,26 @@ public class Drukarnia {
         return -1;
     }
 
+    public boolean dodajAutora(Autor autor) {
+        if(!znajdzAutora(autor)) {
+            dostepniAutorzy.add(autor);
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean usunAutora(Autor autor) {
+        if(znajdzAutora(autor)) {
+            dostepniAutorzy.remove(autor);
+            return true;
+        }
+
+        return false;
+    }
+
+    // w sumie mozna pomyslec tez nad od razu rozwiazaniem umowy z autorem o dzielo tutaj
+    // i skrócenie okresu pracy autora
     public boolean dodajZlecenie(Zlecenie zlecenie) {
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
         if(((Ksiazka) pozycja).getGatunekLiteracki().equals(czegoNieDrukuje)) {
@@ -68,6 +112,7 @@ public class Drukarnia {
 
         if(i >= 0) {
             zlecenia.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
+
         } else if(j >= 0) {
             zlecenia.get(j).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
         } else {
