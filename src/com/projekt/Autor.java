@@ -49,7 +49,7 @@ public class Autor {
         return false;
     }
 
-    public boolean zerwijUmowe(Umowa umowa) {
+    public boolean zakonczUmowe(UmowaODzielo umowa) {
         if(umowy.contains(umowa)) {
             umowy.remove(umowa);
             return true;
@@ -57,6 +57,10 @@ public class Autor {
 
         return false;
     }
+
+//    public boolean zakonczUmowe(UmowaOPrace umowa) {
+//        if(umowy.contains(umowa))
+//    }
 
     @Override
     public boolean equals(Object autor) {
