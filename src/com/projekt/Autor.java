@@ -52,6 +52,16 @@ public class Autor {
         return -1;
     }
 
+    public int znajdzUmoweOPrace() {
+        for(int i = 0; i < umowy.size(); i++) {
+            if(umowy.get(i) instanceof UmowaOPrace) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public boolean zawrzyjUmowe(Umowa umowa) {
         if(!umowy.contains(umowa)) {
             umowy.add(umowa);
