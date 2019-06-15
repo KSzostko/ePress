@@ -109,6 +109,7 @@ public class Drukarnia {
         }
         int i = znajdzZlecenie(zlecenie);
         int j = roznicaIlosci(zlecenie);
+        // Umowa umowa = zlecenie.getAutor().umowaTegoZlecenia
 
         if(i >= 0) {
             zlecenia.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();

@@ -40,6 +40,18 @@ public class Autor {
         }
     }
 
+    public boolean znajdzUmoweODzielo(UmowaODzielo umowa) {
+        for(int i = 0; i < umowy.size(); i++) {
+            if(umowy.get(i) instanceof UmowaODzielo) {
+                if(((UmowaODzielo) umowy.get(i)).getDzielo().equals(umowa.getDzielo())) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     public boolean zawrzyjUmowe(Umowa umowa) {
         if(!umowy.contains(umowa)) {
             umowy.add(umowa);
