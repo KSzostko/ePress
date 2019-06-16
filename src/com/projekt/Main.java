@@ -26,6 +26,7 @@ public class Main {
 
         autor1.zawrzyjUmowe(umowa1);
         autor1.zawrzyjUmowe(umowa4);
+        autor1.przejrzyjUmowy();
         autor2.zawrzyjUmowe(umowa2);
         autor3.zawrzyjUmowe(umowa3);
 
