@@ -14,6 +14,12 @@ public class Drukarnia {
         this.zlecenia = new ArrayList<>();
     }
 
+    public Drukarnia(String nazwaFirmy) {
+        this.nazwaFirmy = nazwaFirmy;
+        this.czegoNieDrukuje = "";
+        this.zlecenia = new ArrayList<>();
+    }
+
     public String getNazwaFirmy() {
         return nazwaFirmy;
     }
