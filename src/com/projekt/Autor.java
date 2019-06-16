@@ -71,22 +71,16 @@ public class Autor {
         return false;
     }
 
-    public boolean zakonczUmowe(UmowaODzielo umowa) {
+    public void zakonczUmowe(UmowaODzielo umowa) {
         if(umowy.contains(umowa)) {
             umowy.remove(umowa);
-            return true;
         }
-
-        return false;
     }
 
-    public boolean zakonczUmowe(UmowaOPrace umowa) {
+    public void zakonczUmowe(UmowaOPrace umowa) {
         if(umowy.contains(umowa) && umowa.getOkresPracy() == 0) {
             umowy.remove(umowa);
-            return true;
         }
-
-        return true;
     }
 
     public void skrocOkresPracy(UmowaOPrace umowa) {

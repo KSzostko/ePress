@@ -99,17 +99,14 @@ public class Drukarnia {
 
         return false;
     }
-
-    // w sumie mozna pomyslec tez nad od razu rozwiazaniem umowy z autorem o dzielo tutaj
-    // i skrócenie okresu pracy autora
-    // ale kurde nie wiem czy nie lepiej przeniesc tych autorow jednak z powrotem do wydawnictwa
-    // bo i tak przeciez do kazdego zlecenia jest autor przypisany
-    // cos mi sie popierdolilo spróbuję potem jescze nad tym pomyśleć
+    
     public boolean dodajZlecenie(Zlecenie zlecenie) {
+        // najpierw sprawdzamy czy drukarnia umożliwia wydrukowanie tego rodzaju pozycji
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
         if(((Ksiazka) pozycja).getGatunekLiteracki().equals(czegoNieDrukuje)) {
             return false;
         }
+
         // jesli nie ma zlecenia na daną pozycję, to dodajemy nowe
         // jeśli już jest zlecenie na pozycję, to zwiększamy ilość egzemplarzy
         int i = znajdzZlecenie(zlecenie);
@@ -117,22 +114,27 @@ public class Drukarnia {
 
         // sprawdzamy najpierw czy autor ma umowe o dzielo na ten konkrenty tytuł
         // jesli nie to traktujemy to jako czesc umowy o prace
-        String tytul = zlecenie.getZleconaPozycja().getTytul();
-        int autor = znajdzAutora(zlecenie.getAutor());
-        int czyUmowaODzielo = zlecenie.getAutor().znajdzUmoweODzielo(tytul);
-        int czyUmowaOPrace = zlecenie.getAutor().znajdzUmoweOPrace();
+        int numerUmowyAutora = zlecenie.numerUmowyAutora();
+        Umowa umowa = zlecenie.getAutor().getUmowy().get(numerUmowyAutora);
 
         if(i >= 0) {
             zlecenia.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
-
-//            if(czyUmowaODzielo >= 0) {
-//
-//                dostepniAutorzy.get(autor).zakonczUmowe()
-//            }
         } else if(j >= 0) {
             zlecenia.get(j).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
         } else {
             zlecenia.add(zlecenie);
+        }
+
+        if(umowa instanceof UmowaODzielo) {
+            zlecenie.autor.zakonczUmowe((UmowaODzielo) umowa);
+        } else {
+            zlecenie.autor.skrocOkresPracy((UmowaOPrace) umowa);
+
+            // teraz sprawdzamy, czy w zaktualizowanej umowie o prace zostaly jescze jakies dni pracy
+            umowa = zlecenie.getAutor().getUmowy().get(numerUmowyAutora);
+            if(((UmowaOPrace) umowa).getOkresPracy() == 0) {
+                zlecenie.autor.zakonczUmowe((UmowaOPrace) umowa);
+            }
         }
 
         return true;
