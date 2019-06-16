@@ -19,5 +19,10 @@ public class Main {
         UmowaODzielo umowa2 = new UmowaODzielo(1800, ksiazka3);
         UmowaOPrace umowa3 = new UmowaOPrace(3300, 365);
         UmowaOPrace umowa4 = new UmowaOPrace(4000, 180);
+
+        autor1.zawrzyjUmowe(umowa1);
+        autor1.zawrzyjUmowe(umowa4);
+        autor2.zawrzyjUmowe(umowa2);
+        autor3.zawrzyjUmowe(umowa3);
     }
 }
