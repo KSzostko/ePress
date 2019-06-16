@@ -27,6 +27,18 @@ public class Zlecenie {
         this.iloscEgzemplarzy = iloscEgzemplarzy;
     }
 
+    public int numerUmowyAutora() {
+        String tytul = zleconaPozycja.getTytul();
+        int czyDzielo = autor.znajdzUmoweODzielo(tytul);
+        int czyOPrace = autor.znajdzUmoweOPrace();
+
+        if(czyDzielo >= 0) {
+            return czyDzielo;
+        } else {
+            return czyOPrace;
+        }
+    }
+
     @Override
     public boolean equals(Object zlecenie) {
         if(((Zlecenie) zlecenie).zleconaPozycja == this.zleconaPozycja &&
