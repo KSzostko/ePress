@@ -115,7 +115,7 @@ public class Wydawnictwo {
         if(i >= 0) {
             Drukarnia drukarniaZeZleceniami = drukarnie.get(i);
 
-            if(drukarniaZeZleceniami.wykonajZlecenie(zlecenie)) {
+            if(drukarniaZeZleceniami.wyslijDoSklepu(zlecenie)) {
                 sklep.dodajDoSklepu(zlecenie);
                 return true;
             }

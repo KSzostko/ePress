@@ -46,7 +46,7 @@ public class Drukarnia {
         return -1;
     }
 
-    // czyli czy wystepuje zlecenie na tą samą pozycję, ale z inną ilością egzemplarzy
+    // sprawdza czy wystepuje zlecenie na tą samą pozycję, ale z inną ilością egzemplarzy
     private int roznicaIlosci(Zlecenie zlecenie) {
         for(int i = 0; i < zlecenia.size(); i++) {
             if(zlecenia.get(i).getZleconaPozycja() == zlecenie.getZleconaPozycja() &&
@@ -59,7 +59,7 @@ public class Drukarnia {
         return -1;
     }
 
-    public boolean dodajZlecenie(Zlecenie zlecenie) {
+    public boolean wydrukuj(Zlecenie zlecenie) {
         // najpierw sprawdzamy czy drukarnia umożliwia wydrukowanie tego rodzaju pozycji
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
         if(((Ksiazka) pozycja).getGatunekLiteracki().equals(czegoNieDrukuje)) {
@@ -99,7 +99,7 @@ public class Drukarnia {
         return true;
     }
 
-    public boolean wykonajZlecenie(Zlecenie zlecenie) {
+    public boolean wyslijDoSklepu(Zlecenie zlecenie) {
         int i = znajdzZlecenie(zlecenie);
         int j = znajdzZlecenie(zlecenie);
 
