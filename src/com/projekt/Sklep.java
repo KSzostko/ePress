@@ -53,6 +53,9 @@ public class Sklep {
     public void dodajDoSklepu(Zlecenie zlecenie) {
         int i = szukajProduktu(zlecenie);
         int j = roznicaIlosci(zlecenie);
+
+        // jesli jest juz taki produkt, to tylko zwiekszamy ilosc egzemplarzy
+        // jesli nie ma to dodajemy nowy produkt
         if(i >= 0) {
             dostepnePozycje.get(i).iloscEgzemplarzy += zlecenie.getIloscEgzemplarzy();
         } else if(j >= 0) {
