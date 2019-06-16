@@ -20,7 +20,9 @@ public class Main {
         UmowaOPrace umowa3 = new UmowaOPrace(3300, 365);
         UmowaOPrace umowa4 = new UmowaOPrace(4000, 180);
 
-//        Drukarnia drukarnia1 = new Drukarnia("DrukPro", "album");
+        Drukarnia drukarnia1 = new Drukarnia("DrukPro", "album");
+        Drukarnia drukarnia2 = new Drukarnia("DrukPol");
+        Drukarnia drukarnia3 = new Drukarnia("Drukolor", "fantasy");
 
         autor1.zawrzyjUmowe(umowa1);
         autor1.zawrzyjUmowe(umowa4);
