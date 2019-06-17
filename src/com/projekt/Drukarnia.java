@@ -71,7 +71,7 @@ public class Drukarnia {
     public boolean wydrukuj(Zlecenie zlecenie) {
         // najpierw sprawdzamy czy drukarnia umożliwia wydrukowanie tego rodzaju pozycji
         PozycjaLiteracka pozycja = zlecenie.getZleconaPozycja();
-        if(((Ksiazka) pozycja).getGatunekLiteracki().equals(czegoNieDrukuje)) {
+        if(pozycja instanceof Ksiazka && ((Ksiazka) pozycja).getGatunekLiteracki().equals(czegoNieDrukuje)) {
             return false;
         }
 

@@ -54,6 +54,10 @@ public class Main {
         // zlecenie 2 nie zostanie wykonane, poniewaz drukarnia1 nie drukuje albumów
         drukarnia1.przejrzyjZlecenia();
 
+        drukarnia2.wydrukuj(zlecenie3);
+        drukarnia2.wydrukuj(zlecenie4);
+        drukarnia2.przejrzyjZlecenia();
+
 
     }
 }
