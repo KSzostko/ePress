@@ -26,6 +26,12 @@ public class Main {
         Drukarnia drukarnia3 = new Drukarnia("Drukolor", "fantasy");
 
         Wydawnictwo ePress = new Wydawnictwo("ePress", sklep);
+        ePress.dodajDrukarnie(drukarnia1);
+        ePress.dodajDrukarnie(drukarnia2);
+        ePress.dodajDrukarnie(drukarnia3);
+        ePress.dodajAutora(autor1);
+        ePress.dodajAutora(autor2);
+        ePress.dodajAutora(autor3);
 
         autor1.zawrzyjUmowe(umowa1);
         autor1.zawrzyjUmowe(umowa4);
