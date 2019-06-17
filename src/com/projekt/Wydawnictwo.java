@@ -55,7 +55,7 @@ public class Wydawnictwo {
         System.out.println("Sklep " + sklep.getNazwa() + " ma w asortymencie");
         for(int i = 0; i < sklep.dostepnePozycje.size(); i++) {
             System.out.println("\tPozycja literacka " + sklep.dostepnePozycje.get(i).getZleconaPozycja().getTytul() +
-                    " autorstwa " + sklep.dostepnePozycje.get(i).getAutor().getImie() +
+                    "   autorstwa " + sklep.dostepnePozycje.get(i).getAutor().getImie() +
                     " " + sklep.dostepnePozycje.get(i).getAutor().getNazwisko() +
                     " w ilosci " + sklep.dostepnePozycje.get(i).getIloscEgzemplarzy() + " sztuk");
         }

@@ -22,9 +22,12 @@ public class Sklep {
 
     public void przejrzyjOferty() {
         int i = 1;
+        System.out.println("Sklep " + nazwa + " posiada w swoim asortymencie:");
         for(Zlecenie zlecenie : dostepnePozycje) {
-            System.out.println("Pozycja nr " + i + ": " + zlecenie.getZleconaPozycja().getTytul()
-                    + " autorstwa " + zlecenie.getAutor());
+            System.out.println("\tPozycja nr " + i + ": " + zlecenie.getZleconaPozycja().getTytul()
+                    + " autorstwa " + zlecenie.getAutor().getImie() +
+                    " " + zlecenie.getAutor().getNazwisko() + " w ilosci " + zlecenie.iloscEgzemplarzy + " " +
+                    "sztuk");
         }
     }
 

@@ -71,7 +71,12 @@ public class Main {
         drukarnia1.przejrzyjZlecenia();
         Zlecenie asortymentDoSklepu = new Zlecenie(ksiazka1, autor1, 550);
         ePress.przekazDoSklepu(asortymentDoSklepu, drukarnia1);
-        ePress.przjerzyjOferteSklepu();
+        sklep.przejrzyjOferty();
         drukarnia1.przejrzyjZlecenia();
+
+        // sprzedajemy książkę i sprawdzamy, czy zmienia to ilość egzemplarzy w sklepie
+        Zlecenie zamownienie = new Zlecenie(ksiazka1, autor1, 20);
+        sklep.sprzedaj(zamownienie);
+        sklep.przejrzyjOferty();
     }
 }
