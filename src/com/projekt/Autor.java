@@ -28,7 +28,7 @@ public class Autor {
 
     public void przejrzyjUmowy() {
         int i = 1;
-        System.out.println("Autor " + imie + " " + nazwisko + " zawarl nastepujace umowy:");
+        System.out.println("\tAutor " + imie + " " + nazwisko + " zawarl nastepujace umowy:");
         for(Umowa umowa : umowy) {
             System.out.println("\tUmowa nr " + i++ + ": ");
             if(umowa instanceof UmowaOPrace) {

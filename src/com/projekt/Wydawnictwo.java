@@ -37,8 +37,8 @@ public class Wydawnictwo {
         System.out.println("Wydawnictwo " + nazwaWydawnictwa + " zatrudnia nastepujacych autorow:");
         for(Autor autor : dostepniAutorzy) {
             System.out.println("\tAutor " + i++ + ": " + autor.getImie() + " " + autor.getNazwisko() +
-                    " " + autor.getUmowy());
-            // do poprawy wyswietlanie umów
+                    " " );
+            autor.przejrzyjUmowy();
         }
     }
 
