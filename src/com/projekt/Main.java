@@ -65,5 +65,13 @@ public class Main {
 
         ePress.przejrzyjAutorow();
         // umowy o dzielo dobrze usuwa, potem trzeba jescze sprawdzić, czy to samo z umowami o prace
+
+        // przekazywanie zasobow do sklepu, sprawdzamy, czy zmniejsza się ilość egzemplarzy w drukarni
+        // i zmniejsza w sklepie lub też dodaje się całkowicie nowa poyzcja w sklepie
+        drukarnia1.przejrzyjZlecenia();
+        Zlecenie asortymentDoSklepu = new Zlecenie(ksiazka1, autor1, 550);
+        ePress.przekazDoSklepu(asortymentDoSklepu, drukarnia1);
+        ePress.przjerzyjOferteSklepu();
+        drukarnia1.przejrzyjZlecenia();
     }
 }

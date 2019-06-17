@@ -38,14 +38,4 @@ public class Zlecenie {
             return czyOPrace;
         }
     }
-
-    @Override
-    public boolean equals(Object zlecenie) {
-        if(((Zlecenie) zlecenie).zleconaPozycja == this.zleconaPozycja &&
-                ((Zlecenie) zlecenie).autor == this.autor) {
-            return true;
-        }
-
-        return false;
-    }
 }

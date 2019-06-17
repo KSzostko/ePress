@@ -110,7 +110,7 @@ public class Drukarnia {
 
     public boolean wyslijDoSklepu(Zlecenie zlecenie) {
         int i = znajdzZlecenie(zlecenie);
-        int j = znajdzZlecenie(zlecenie);
+        int j = roznicaIlosci(zlecenie);
 
         if(i >= 0) {
             zlecenia.remove(zlecenie);
