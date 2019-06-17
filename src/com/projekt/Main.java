@@ -42,6 +42,13 @@ public class Main {
         ePress.przejrzyjAutorow();
         ePress.przejrzyjDrukarnie();
 
+        // zlecenia wydruku
+        Zlecenie zlecenie1 = new Zlecenie(ksiazka1, autor1, 2000);
+        Zlecenie zlecenie2 = new Zlecenie(ksiazka2, autor3, 1500);
+        Zlecenie zlecenie3 = new Zlecenie(ksiazka3, autor2, 3000);
+        Zlecenie zlecenie4 = new Zlecenie(czasopismo1, autor1, 800);
+        Zlecenie zlecenie5 = new Zlecenie(czasopismo2, autor3, 500);
+
 
     }
 }
