@@ -33,7 +33,8 @@ public class Autor {
             System.out.println("\tUmowa nr " + i++ + ": ");
             if(umowa instanceof UmowaOPrace) {
                 System.out.println("\tumowa o prace na okres " +
-                        ((UmowaOPrace) umowa).getOkresPracy() + " dni na kwote " + umowa.getWynagrodzenie() + "zl");
+                        ((UmowaOPrace) umowa).getOkresPracy() + " dni na kwote " + umowa.getWynagrodzenie() + "zl " +
+                        "miesiecznie");
             } else {
                 System.out.println("\tumowa o dzielo " +
                         ((UmowaODzielo) umowa).getDzielo() + " na kwote " + umowa.getWynagrodzenie() + "zl");
