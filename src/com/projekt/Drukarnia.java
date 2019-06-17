@@ -35,10 +35,13 @@ public class Drukarnia {
 
     public void przejrzyjZlecenia() {
         int i = 1;
+        System.out.println("Drukarnia " + nazwaFirmy + " moze zrealizowac nastepujace zamowienia" +
+                "(lub tez w mniejszej ilosci egzemplarzy):");
         for(Zlecenie zlecenie : zlecenia) {
-            System.out.println("Zlecenie nr " + i++ + ": " +
-                    zlecenie.getZleconaPozycja().getTytul() + " autorstwa " + zlecenie.getAutor() +
-                    " w ilosci " + zlecenie.getIloscEgzemplarzy());
+            System.out.println("\tZlecenie nr " + i++ + ": " +
+                    zlecenie.getZleconaPozycja().getTytul() + " autorstwa " + zlecenie.getAutor().getImie() +
+                    " " + zlecenie.getAutor().getNazwisko() + " w ilosci " + zlecenie.getIloscEgzemplarzy() +
+                    " sztuk");
         }
     }
 

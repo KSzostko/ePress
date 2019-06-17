@@ -49,6 +49,11 @@ public class Main {
         Zlecenie zlecenie4 = new Zlecenie(czasopismo1, autor1, 800);
         Zlecenie zlecenie5 = new Zlecenie(czasopismo2, autor3, 500);
 
+        drukarnia1.wydrukuj(zlecenie1);
+        drukarnia1.wydrukuj(zlecenie2);
+        // zlecenie 2 nie zostanie wykonane, poniewaz drukarnia1 nie drukuje albumów
+        drukarnia1.przejrzyjZlecenia();
+
 
     }
 }
