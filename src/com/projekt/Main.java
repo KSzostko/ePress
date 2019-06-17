@@ -58,6 +58,9 @@ public class Main {
         drukarnia2.wydrukuj(zlecenie4);
         drukarnia2.przejrzyjZlecenia();
 
-
+        drukarnia3.wydrukuj(zlecenie1);
+        // zlecenie1 nie zostanie wydrukowane, poniewaz drukarnia3 nie drukuje książek fantasy
+        drukarnia3.wydrukuj(zlecenie5);
+        drukarnia3.przejrzyjZlecenia();
     }
 }
