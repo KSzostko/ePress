@@ -62,5 +62,8 @@ public class Main {
         // zlecenie1 nie zostanie wydrukowane, poniewaz drukarnia3 nie drukuje książek fantasy
         drukarnia3.wydrukuj(zlecenie5);
         drukarnia3.przejrzyjZlecenia();
+
+        ePress.przejrzyjAutorow();
+        // umowy o dzielo dobrze usuwa, potem trzeba jescze sprawdzić, czy to samo z umowami o prace
     }
 }
