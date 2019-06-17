@@ -30,13 +30,13 @@ public class Autor {
         int i = 1;
         System.out.println("Autor " + imie + " " + nazwisko + " zawarl nastepujace umowy:");
         for(Umowa umowa : umowy) {
-            System.out.println("Umowa nr " + i++ + ": ");
+            System.out.println("\tUmowa nr " + i++ + ": ");
             if(umowa instanceof UmowaOPrace) {
-                System.out.println("umowa o prace na okres " +
-                        ((UmowaOPrace) umowa).getOkresPracy() + " dni");
+                System.out.println("\tumowa o prace na okres " +
+                        ((UmowaOPrace) umowa).getOkresPracy() + " dni na kwote " + umowa.getWynagrodzenie() + "zl");
             } else {
-                System.out.println("umowa o dzielo " +
-                        ((UmowaODzielo) umowa).getDzielo());
+                System.out.println("\tumowa o dzielo " +
+                        ((UmowaODzielo) umowa).getDzielo() + " na kwote " + umowa.getWynagrodzenie() + "zl");
             }
         }
     }
