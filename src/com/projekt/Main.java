@@ -20,9 +20,12 @@ public class Main {
         UmowaOPrace umowa3 = new UmowaOPrace(3300, 365);
         UmowaOPrace umowa4 = new UmowaOPrace(4000, 180);
 
+        Sklep sklep = new Sklep("ePress shop");
         Drukarnia drukarnia1 = new Drukarnia("DrukPro", "album");
         Drukarnia drukarnia2 = new Drukarnia("DrukPol");
         Drukarnia drukarnia3 = new Drukarnia("Drukolor", "fantasy");
+
+        Wydawnictwo ePress = new Wydawnictwo("ePress", sklep);
 
         autor1.zawrzyjUmowe(umowa1);
         autor1.zawrzyjUmowe(umowa4);
