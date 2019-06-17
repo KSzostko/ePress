@@ -34,16 +34,19 @@ public class Wydawnictwo {
 
     public void przejrzyjAutorow() {
         int i = 1;
+        System.out.println("Wydawnictwo " + nazwaWydawnictwa + " zatrudnia nastepujacych autorow:");
         for(Autor autor : dostepniAutorzy) {
-            System.out.println("Autor " + i + ": " + autor.getImie() + " " + autor.getNazwisko() +
+            System.out.println("\tAutor " + i++ + ": " + autor.getImie() + " " + autor.getNazwisko() +
                     " " + autor.getUmowy());
+            // do poprawy wyswietlanie umów
         }
     }
 
     public void przejrzyjDrukarnie() {
         int i = 1;
+        System.out.println("Wydawnictwo " + nazwaWydawnictwa + " wspolpracyje z drukarniami:");
         for(Drukarnia drukarnia : drukarnie) {
-            System.out.println("Drukarnia " + i + ":  firma " + drukarnia.getNazwaFirmy()
+            System.out.println("\tDrukarnia " + i++ + ":  firma " + drukarnia.getNazwaFirmy()
                     + " a drukarnia nie drukuje " + drukarnia.getCzegoNieDrukuje());
         }
     }

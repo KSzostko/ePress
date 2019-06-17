@@ -36,7 +36,7 @@ public class Drukarnia {
     public void przejrzyjZlecenia() {
         int i = 1;
         for(Zlecenie zlecenie : zlecenia) {
-            System.out.println("Zlecenie nr " + i + ": " +
+            System.out.println("Zlecenie nr " + i++ + ": " +
                     zlecenie.getZleconaPozycja().getTytul() + " autorstwa " + zlecenie.getAutor() +
                     " w ilosci " + zlecenie.getIloscEgzemplarzy());
         }
