@@ -32,14 +32,15 @@ public class Main {
         ePress.dodajAutora(autor1);
         ePress.dodajAutora(autor2);
         ePress.dodajAutora(autor3);
-        ePress.przejrzyjAutorow();
-        ePress.przejrzyjDrukarnie();
 
         autor1.zawrzyjUmowe(umowa1);
         autor1.zawrzyjUmowe(umowa4);
         autor1.przejrzyjUmowy();
         autor2.zawrzyjUmowe(umowa2);
         autor3.zawrzyjUmowe(umowa3);
+
+        ePress.przejrzyjAutorow();
+        ePress.przejrzyjDrukarnie();
 
 
     }
