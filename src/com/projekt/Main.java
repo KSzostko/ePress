@@ -23,12 +23,12 @@ public class Main {
 //        UmowaOPrace umowa3 = new UmowaOPrace(3300, 365);
 //        UmowaOPrace umowa4 = new UmowaOPrace(4000, 180);
 //
-//        Sklep sklep = new Sklep("ePress shop");
+          Sklep sklep = new Sklep("ePress shop");
 //        Drukarnia drukarnia1 = new Drukarnia("DrukPro", "album");
 //        Drukarnia drukarnia2 = new Drukarnia("DrukPol");
 //        Drukarnia drukarnia3 = new Drukarnia("Drukolor", "fantasy");
 //
-//        Wydawnictwo ePress = new Wydawnictwo("ePress", sklep);
+          Wydawnictwo ePress = new Wydawnictwo("ePress", sklep);
 //        ePress.dodajDrukarnie(drukarnia1);
 //        ePress.dodajDrukarnie(drukarnia2);
 //        ePress.dodajDrukarnie(drukarnia3);
@@ -86,8 +86,97 @@ public class Main {
         // twój kod
         
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Podaj tytuł");
-        String text = keyboard.nextLine();
+        Scanner keyboard2 = new Scanner(System.in);
+        Scanner keyboard3 = new Scanner(System.in);
+        String userInput;
+        String userInput2;
+        Boolean mainRunning = true;
+        Boolean wydawnictwoRunning = true;
+        Boolean zarzad1Running = true;
+        while(mainRunning){
+            System.out.println("Witaj w ePress");
+            System.out.println("1.Wydawnictwo");
+            System.out.println("2.Drukarnia");
+            System.out.println("3.Sklep");
+            System.out.println("4.Wyjdz");
+            int userChoice = keyboard.nextInt();
+            switch(userChoice){
+                case 1:
+                    wydawnictwoRunning = true;
+                    while(wydawnictwoRunning) {
+                        System.out.println("1.Zarządzanie autorami");
+                        System.out.println("2.Zarządzanie umowami");
+                        System.out.println("3.Zarzadzanie drukarniami");
+                        System.out.println("4.Zarzadzanie pozycjami literackimi");
+                        System.out.println("5.Wyslij towar do sklepu");
+                        System.out.println("6.Wroc");
+                        userChoice = keyboard.nextInt();
+                        switch (userChoice){
+                            case 1:
+                                zarzad1Running = true;
+                                while(zarzad1Running) {
+                                    System.out.println("1.Dodaj autora");
+                                    System.out.println("2.Usun autora");
+                                    System.out.println("3.Przeglad autorow");
+                                    System.out.println("4.Wroc");
+                                    userChoice = keyboard.nextInt();
+                                    switch(userChoice){
+                                        case 1:
+                                            System.out.println("Podaj imie:");
+                                            userInput = keyboard2.nextLine();
+                                            System.out.println("Podaj nazwisko:");
+                                            userInput2 = keyboard3.nextLine();
+                                            Autor autor1 = new Autor(userInput2, userInput);
+                                            ePress.dodajAutora(autor1);
+                                            break;
+                                        case 2:
+                                            break;
+                                        case 3:
+                                            ePress.przejrzyjAutorow();
+                                            break;
+                                        case 4:
+                                            zarzad1Running = false;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                            case 2:
 
+                                break;
+                            case 3:
+
+                                break;
+                            case 4:
+
+                                break;
+                            case 5:
+
+                                break;
+                            case 6:
+                                wydawnictwoRunning = false;
+                                break;
+                            default:
+
+                                break;
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("opcja 2");
+                    break;
+                case 3:
+                    System.out.println("opcja 3");
+                    break;
+                case 4:
+                    mainRunning = false;
+                    break;
+                default:
+
+                    break;
+            }
+        }
+        System.out.println("koniec programu");
     }
 }
