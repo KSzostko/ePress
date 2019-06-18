@@ -97,7 +97,8 @@ public class Main {
         Boolean zarzad3Running = true;
         Boolean zarzad4Running = true;
         String eater;
-        Autor[] autors = new Autor[10];
+        double tripleDouble;
+
         while(mainRunning){
             System.out.println("Witaj w ePress");
             System.out.println("1.Wydawnictwo");
@@ -113,8 +114,8 @@ public class Main {
                         System.out.println("2.Zarządzanie umowami");
                         System.out.println("3.Zarzadzanie drukarniami");
                         System.out.println("4.Zarzadzanie pozycjami literackimi");
-                        System.out.println("5.Wyslij towar do sklepu");
-                        System.out.println("6.Wroc");
+                        System.out.println("5.Wroc");
+
                         userChoice = keyboard.nextInt();
                         eater = keyboard.nextLine();
                         switch (userChoice){
@@ -168,6 +169,7 @@ public class Main {
                                             System.out.println("1.Dzieło");
                                             System.out.println("2.Prace");
                                             userChoice = keyboard.nextInt();
+                                            eater = keyboard.nextLine();
                                             switch (userChoice){
                                                 case 1:
                                                     System.out.println("Podaj imie autora");
@@ -179,6 +181,10 @@ public class Main {
                                                     eater = keyboard.nextLine();
                                                     System.out.println("Podaj pozycje na która zawierana jest umowa:");
                                                     userInput3 = keyboard.nextLine();
+                                                    //Umowa umowa1 = new UmowaODzielo(2500, findBook(userInput3);
+                                                    //funckja ktroa znajdzie i zwroci ksiazke po tytule
+                                                    //Autor autor1 = new Autor(userInput2,userInput1);
+                                                    //autor1.zawrzyjUmowe(umowa1);
                                                     break;
                                                 case 2:
                                                     System.out.println("Podaj imie autora");
@@ -192,16 +198,19 @@ public class Main {
                                                     userChoice = keyboard.nextInt();
                                                     eater = keyboard.nextLine();
                                                     UmowaOPrace umowa3 = new UmowaOPrace(userInput4, userChoice);
-
+                                                    Autor autor2 = new Autor(userInput2,userInput1);
+                                                    autor2.zawrzyjUmowe(umowa3);
+                                                    autor2.przejrzyjUmowy();
                                                     break;
                                                 default:
                                                     break;
                                             }
                                             break;
                                         case 2:
+                                            //metoda do usuwania umow
                                             break;
                                         case 3:
-
+                                            //metoda do przegladania umow
                                             break;
                                         case 4:
                                             zarzad2Running = false;
@@ -248,12 +257,61 @@ public class Main {
                             }
                                 break;
                             case 4:
+                                zarzad4Running = true;
+                                while(zarzad4Running){
+                                    System.out.println("1.Dodaj pozycje");
+                                    System.out.println("2.Usun pozycje");
+                                    System.out.println("3.Przeglad pozycji");
+                                    System.out.println("4.Wroc");
+                                    userChoice = keyboard.nextInt();
+                                    eater = keyboard.nextLine();
+                                    switch (userChoice){
+                                        case 1:
+                                            System.out.println("1.Ksiazka");
+                                            System.out.println("2.Czasopismo");
+                                            userChoice = keyboard.nextInt();
+                                            eater = keyboard.nextLine();
+                                            switch (userChoice){
+                                                case 1:
+                                                    System.out.println("Podaj tytul");
+                                                    userInput1 = keyboard.nextLine();
+                                                    System.out.println("Podaj cene");
+                                                    tripleDouble = keyboard.nextDouble();
+                                                    eater = keyboard.nextLine();
+                                                    System.out.println("Podaj gatunek literacki");
+                                                    userInput1 = keyboard.nextLine();
+                                                    Ksiazka ksiazka1 = new Ksiazka(userInput1, tripleDouble, userInput1);
+                                                    break;
+                                                case 2:
+                                                    System.out.println("Podaj tytul");
+                                                    userInput1 = keyboard.nextLine();
+                                                    System.out.println("Podaj cene");
+                                                    tripleDouble = keyboard.nextDouble();
+                                                    eater = keyboard.nextLine();
+                                                    System.out.println("Podaj okres wydawania");
+                                                    userInput1 = keyboard.nextLine();
+                                                    Czasopismo czasopismo1 = new Czasopismo(userInput1, tripleDouble, userInput1);
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                            break;
+                                        case 2:
+                                            //usun ksiazke
+                                            break;
+                                        case 3:
+                                            //przeglad ksiazek
+                                            break;
+                                        case 4:
+                                            zarzad4Running = false;
+                                            break;
+                                        default:
+                                            break;
+                                    }
 
+                                }
                                 break;
                             case 5:
-
-                                break;
-                            case 6:
                                 wydawnictwoRunning = false;
                                 break;
                             default:
