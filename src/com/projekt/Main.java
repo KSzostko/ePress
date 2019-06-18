@@ -96,6 +96,7 @@ public class Main {
         Boolean zarzad2Running = true;
         Boolean zarzad3Running = true;
         Boolean zarzad4Running = true;
+        String eater;
         Autor[] autors = new Autor[10];
         while(mainRunning){
             System.out.println("Witaj w ePress");
@@ -115,6 +116,7 @@ public class Main {
                         System.out.println("5.Wyslij towar do sklepu");
                         System.out.println("6.Wroc");
                         userChoice = keyboard.nextInt();
+                        eater = keyboard.nextLine();
                         switch (userChoice){
                             case 1:
                                 zarzad1Running = true;
@@ -124,6 +126,7 @@ public class Main {
                                     System.out.println("3.Przeglad autorow");
                                     System.out.println("4.Wroc");
                                     userChoice = keyboard.nextInt();
+                                    eater = keyboard.nextLine();
                                     switch(userChoice){
                                         case 1:
                                             System.out.println("Podaj imie:");
@@ -138,10 +141,7 @@ public class Main {
                                             userInput1 = keyboard.nextLine();
                                             System.out.println("Podaj nazwisko:");
                                             userInput2 = keyboard.nextLine();
-                                            /*
-                                            tu kod który znajdzie po imieniu i nazwisku autora i wywola funkcje
-                                            ePress.usunAutora(znalezionyAutor);
-                                             */
+                                            ePress.usunAutora(new Autor(userInput2,userInput1));
                                             break;
                                         case 3:
                                             ePress.przejrzyjAutorow();
@@ -162,6 +162,7 @@ public class Main {
                                     System.out.println("3.Przeglad umow");
                                     System.out.println("4.Wroc");
                                     userChoice = keyboard.nextInt();
+                                    eater = keyboard.nextLine();
                                     switch (userChoice) {
                                         case 1:
                                             System.out.println("1.Dzieło");
@@ -175,10 +176,23 @@ public class Main {
                                                     userInput2 = keyboard.nextLine();
                                                     System.out.println("Podaj wynagrodzenie");
                                                     userInput4 = keyboard.nextInt();
+                                                    eater = keyboard.nextLine();
                                                     System.out.println("Podaj pozycje na która zawierana jest umowa:");
                                                     userInput3 = keyboard.nextLine();
                                                     break;
                                                 case 2:
+                                                    System.out.println("Podaj imie autora");
+                                                    userInput1 = keyboard.nextLine();
+                                                    System.out.println("Podaj nazwisko autora");
+                                                    userInput2 = keyboard.nextLine();
+                                                    System.out.println("Podaj wynagrodzenie");
+                                                    userInput4 = keyboard.nextInt();
+                                                    eater = keyboard.nextLine();
+                                                    System.out.println("Czas trwania umowy");
+                                                    userChoice = keyboard.nextInt();
+                                                    eater = keyboard.nextLine();
+                                                    UmowaOPrace umowa3 = new UmowaOPrace(userInput4, userChoice);
+
                                                     break;
                                                 default:
                                                     break;
@@ -198,7 +212,40 @@ public class Main {
                                 }
                                 break;
                             case 3:
-
+                            zarzad3Running = true;
+                            while(zarzad3Running){
+                                System.out.println("1.Dodaj drukarnie");
+                                System.out.println("2.Usun drukarnie");
+                                System.out.println("3.Przeglad drukarni");
+                                System.out.println("4.Wroc");
+                                userChoice = keyboard.nextInt();
+                                eater = keyboard.nextLine();
+                                switch (userChoice){
+                                    case 1:
+                                        System.out.println("Podaj nazwe drukarni");
+                                        userInput1 = keyboard.nextLine();
+                                        System.out.println("Podaj czego drukarnia nie moze wydrukowac(zostaw puste jesli moze wszystko)");
+                                        userInput2 = keyboard.nextLine();
+                                        Drukarnia drukarnia3 = new Drukarnia(userInput1, userInput2);
+                                        ePress.dodajDrukarnie(drukarnia3);
+                                        break;
+                                    case 2:
+                                        System.out.println("Podaj nazwe drukarni");
+                                        userInput1 = keyboard.nextLine();
+                                        System.out.println("Podaj czego drukarnia nie moze wydrukowac(zostaw puste jesli moze wszystko)");
+                                        userInput2 = keyboard.nextLine();
+                                        ePress.usunDrukarnie(new Drukarnia(userInput1,userInput2));
+                                        break;
+                                    case 3:
+                                        ePress.przejrzyjDrukarnie();
+                                        break;
+                                    case 4:
+                                        zarzad3Running = false;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
                                 break;
                             case 4:
 
