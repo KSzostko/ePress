@@ -86,13 +86,17 @@ public class Main {
         // twój kod
         
         Scanner keyboard = new Scanner(System.in);
-        Scanner keyboard2 = new Scanner(System.in);
-        Scanner keyboard3 = new Scanner(System.in);
-        String userInput;
+        String userInput1;
         String userInput2;
+        String userInput3;
+        int userInput4;
         Boolean mainRunning = true;
         Boolean wydawnictwoRunning = true;
         Boolean zarzad1Running = true;
+        Boolean zarzad2Running = true;
+        Boolean zarzad3Running = true;
+        Boolean zarzad4Running = true;
+        Autor[] autors = new Autor[10];
         while(mainRunning){
             System.out.println("Witaj w ePress");
             System.out.println("1.Wydawnictwo");
@@ -123,13 +127,21 @@ public class Main {
                                     switch(userChoice){
                                         case 1:
                                             System.out.println("Podaj imie:");
-                                            userInput = keyboard2.nextLine();
+                                            userInput1 = keyboard.nextLine();
                                             System.out.println("Podaj nazwisko:");
-                                            userInput2 = keyboard3.nextLine();
-                                            Autor autor1 = new Autor(userInput2, userInput);
+                                            userInput2 = keyboard.nextLine();
+                                            Autor autor1 = new Autor(userInput2, userInput1);
                                             ePress.dodajAutora(autor1);
                                             break;
                                         case 2:
+                                            System.out.println("Podaj imie:");
+                                            userInput1 = keyboard.nextLine();
+                                            System.out.println("Podaj nazwisko:");
+                                            userInput2 = keyboard.nextLine();
+                                            /*
+                                            tu kod który znajdzie po imieniu i nazwisku autora i wywola funkcje
+                                            ePress.usunAutora(znalezionyAutor);
+                                             */
                                             break;
                                         case 3:
                                             ePress.przejrzyjAutorow();
@@ -143,7 +155,47 @@ public class Main {
                                 }
                                 break;
                             case 2:
+                                zarzad2Running = true;
+                                while(zarzad2Running) {
+                                    System.out.println("1.Dodaj umowe");
+                                    System.out.println("2.Usun umowe");
+                                    System.out.println("3.Przeglad umow");
+                                    System.out.println("4.Wroc");
+                                    userChoice = keyboard.nextInt();
+                                    switch (userChoice) {
+                                        case 1:
+                                            System.out.println("1.Dzieło");
+                                            System.out.println("2.Prace");
+                                            userChoice = keyboard.nextInt();
+                                            switch (userChoice){
+                                                case 1:
+                                                    System.out.println("Podaj imie autora");
+                                                    userInput1 = keyboard.nextLine();
+                                                    System.out.println("Podaj nazwisko autora");
+                                                    userInput2 = keyboard.nextLine();
+                                                    System.out.println("Podaj wynagrodzenie");
+                                                    userInput4 = keyboard.nextInt();
+                                                    System.out.println("Podaj pozycje na która zawierana jest umowa:");
+                                                    userInput3 = keyboard.nextLine();
+                                                    break;
+                                                case 2:
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                            break;
+                                        case 2:
+                                            break;
+                                        case 3:
 
+                                            break;
+                                        case 4:
+                                            zarzad2Running = false;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
                                 break;
                             case 3:
 
