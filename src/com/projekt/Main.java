@@ -163,8 +163,7 @@ public class Main {
                                 zarzad2Running = true;
                                 while(zarzad2Running) {
                                     System.out.println("1.Dodaj umowe");
-                                    System.out.println("2.Usun umowe");
-                                    System.out.println("3.Przeglad umow");
+                                    System.out.println("2.Przeglad umow");
                                     System.out.println("4.Wroc");
                                     userChoice = keyboard.nextInt();
                                     eater = keyboard.nextLine();
@@ -215,12 +214,9 @@ public class Main {
                                             }
                                             break;
                                         case 2:
-                                            //metoda do usuwania umow
-                                            break;
-                                        case 3:
                                             //metoda do przegladania umow
                                             break;
-                                        case 4:
+                                        case 3:
                                             zarzad2Running = false;
                                             break;
                                         default:
