@@ -579,11 +579,13 @@ public class Main {
                                             if(userInput7.equals("")) {
                                                 i = ePress.znajdzDrukarnie(new Drukarnia(userInput6));
                                                 Drukarnia drukarnia1 = ePress.getDrukarnie().get(i);
-                                                ePress.przekazDoSklepu(zlecenie1, drukarnia1);
+                                                drukarnia1.wyslijDoSklepu(zlecenie1);
+                                                sklep.dodajDoSklepu(zlecenie1);
                                             } else {
                                                 i = ePress.znajdzDrukarnie(new Drukarnia(userInput6,userInput7));
                                                 Drukarnia drukarnia1 = ePress.getDrukarnie().get(i);
-                                                ePress.przekazDoSklepu(zlecenie1, drukarnia1);
+                                                drukarnia1.wyslijDoSklepu(zlecenie1);
+                                                sklep.dodajDoSklepu(zlecenie1);
                                             }
                                             break;
                                         case 2:
@@ -617,11 +619,13 @@ public class Main {
                                             if(userInput7.equals("")) {
                                                 i = ePress.znajdzDrukarnie(new Drukarnia(userInput6));
                                                 Drukarnia drukarnia1 = ePress.getDrukarnie().get(i);
-                                                ePress.przekazDoSklepu(zlecenie1, drukarnia1);
+                                                drukarnia1.wyslijDoSklepu(zlecenie1);
+                                                sklep.dodajDoSklepu(zlecenie1);
                                             } else {
                                                 i = ePress.znajdzDrukarnie(new Drukarnia(userInput6,userInput7));
                                                 Drukarnia drukarnia1 = ePress.getDrukarnie().get(i);
-                                                ePress.przekazDoSklepu(zlecenie1, drukarnia1);
+                                                drukarnia1.wyslijDoSklepu(zlecenie1);
+                                                sklep.dodajDoSklepu(zlecenie1);
                                             }
                                             break;
                                         default:

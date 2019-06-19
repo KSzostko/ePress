@@ -58,8 +58,8 @@ public class Drukarnia {
     // sprawdza czy wystepuje zlecenie na tą samą pozycję, ale z inną ilością egzemplarzy
     private int roznicaIlosci(Zlecenie zlecenie) {
         for(int i = 0; i < zlecenia.size(); i++) {
-            if(zlecenia.get(i).getZleconaPozycja() == zlecenie.getZleconaPozycja() &&
-                    zlecenia.get(i).getAutor() == zlecenie.getAutor() &&
+            if(zlecenia.get(i).getZleconaPozycja().getTytul().equals(zlecenie.getZleconaPozycja().getTytul()) &&
+                    zlecenia.get(i).getAutor().getNazwisko().equals(zlecenie.getAutor().getNazwisko()) &&
                     zlecenia.get(i).getIloscEgzemplarzy() != zlecenie.getIloscEgzemplarzy()) {
                 return i;
             }
