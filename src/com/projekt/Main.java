@@ -291,9 +291,8 @@ public class Main {
                                 zarzad4Running = true;
                                 while(zarzad4Running){
                                     System.out.println("1.Dodaj pozycje");
-                                    System.out.println("2.Usun pozycje");
-                                    System.out.println("3.Przeglad pozycji");
-                                    System.out.println("4.Wroc");
+                                    System.out.println("2.Przeglad pozycji");
+                                    System.out.println("3.Wroc");
                                     userChoice = keyboard.nextInt();
                                     eater = keyboard.nextLine();
                                     switch (userChoice){
@@ -310,8 +309,10 @@ public class Main {
                                                     tripleDouble = keyboard.nextDouble();
                                                     eater = keyboard.nextLine();
                                                     System.out.println("Podaj gatunek literacki");
-                                                    userInput1 = keyboard.nextLine();
-                                                    Ksiazka ksiazka1 = new Ksiazka(userInput1, tripleDouble, userInput1);
+                                                    userInput3 = keyboard.nextLine();
+                                                    Ksiazka ksiazka1 = new Ksiazka(userInput1, tripleDouble,
+                                                            userInput3);
+                                                    pozycje.add(ksiazka1);
                                                     break;
                                                 case 2:
                                                     System.out.println("Podaj tytul");
@@ -320,20 +321,31 @@ public class Main {
                                                     tripleDouble = keyboard.nextDouble();
                                                     eater = keyboard.nextLine();
                                                     System.out.println("Podaj okres wydawania");
-                                                    userInput1 = keyboard.nextLine();
-                                                    Czasopismo czasopismo1 = new Czasopismo(userInput1, tripleDouble, userInput1);
+                                                    userInput3 = keyboard.nextLine();
+                                                    Czasopismo czasopismo1 = new Czasopismo(userInput1, tripleDouble,
+                                                            userInput3);
+                                                    pozycje.add(czasopismo1);
                                                     break;
                                                 default:
                                                     break;
                                             }
                                             break;
                                         case 2:
-                                            //usun ksiazke
+                                            for(int i = 0; i < pozycje.size(); i++) {
+                                                PozycjaLiteracka pozycja = pozycje.get(i);
+
+                                                if(pozycja instanceof Ksiazka) {
+                                                    System.out.println("Pozycja nr. " + (i+1) + ": " +
+                                                            " ksiazka z gatunku " + ((Ksiazka) pozycja).getGatunekLiteracki() +
+                                                " o tytule " + pozycja.getTytul());
+                                                } else {
+                                                    System.out.println("Pozycja nr. " + (i+1) + ": " +
+                                                            " czasopismo wydawane co " + ((Czasopismo) pozycja).getOkresWydania()
+                                                    + " o tytule " + pozycja.getTytul());
+                                                }
+                                            }
                                             break;
                                         case 3:
-                                            //przeglad ksiazek
-                                            break;
-                                        case 4:
                                             zarzad4Running = false;
                                             break;
                                         default:
