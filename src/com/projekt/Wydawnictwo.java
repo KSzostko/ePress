@@ -116,19 +116,4 @@ public class Wydawnictwo {
 
         return false;
     }
-
-    public boolean przekazDoSklepu(Zlecenie zlecenie, Drukarnia drukarnia) {
-        int i = znajdzDrukarnie(drukarnia);
-
-        if(i >= 0) {
-            Drukarnia drukarniaZeZleceniami = drukarnie.get(i);
-
-            if(drukarniaZeZleceniami.wyslijDoSklepu(zlecenie)) {
-                sklep.dodajDoSklepu(zlecenie);
-                return true;
-            }
-        }
-
-        return false;
-    }
 }
