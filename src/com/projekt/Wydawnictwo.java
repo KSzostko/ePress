@@ -61,7 +61,7 @@ public class Wydawnictwo {
         }
     }
 
-    private int znajdzAutora(Autor autor) {
+    public int znajdzAutora(Autor autor) {
         for(int i = 0; i < dostepniAutorzy.size(); i++) {
             if(dostepniAutorzy.get(i).equals(autor)) {
                 return i;

@@ -1,5 +1,7 @@
 package com.projekt;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -84,7 +86,9 @@ public class Main {
 
 
         // twój kod
-        
+        List<PozycjaLiteracka> pozycje = new ArrayList<>();
+        List<Umowa> umowy = new ArrayList<>();
+        List<Autor> autorzy = new ArrayList<>();
         Scanner keyboard = new Scanner(System.in);
         String userInput1;
         String userInput2;
@@ -140,6 +144,7 @@ public class Main {
                                             userInput2 = keyboard.nextLine();
                                             Autor autor1 = new Autor(userInput1, userInput2);
                                             ePress.dodajAutora(autor1);
+                                            autorzy.add(autor1);
                                             break;
                                         case 2:
                                             System.out.println("Podaj imie:");
@@ -147,6 +152,8 @@ public class Main {
                                             System.out.println("Podaj nazwisko:");
                                             userInput2 = keyboard.nextLine();
                                             ePress.usunAutora(new Autor(userInput1,userInput2));
+                                            Autor autor2 = new Autor(userInput1, userInput2);
+                                            autorzy.remove(autor2);
                                             break;
                                         case 3:
                                             ePress.przejrzyjAutorow();
@@ -179,6 +186,10 @@ public class Main {
                                                     userInput1 = keyboard.nextLine();
                                                     System.out.println("Podaj nazwisko autora");
                                                     userInput2 = keyboard.nextLine();
+
+                                                    int i = ePress.znajdzAutora(new Autor(userInput1, userInput2));
+                                                    Autor autor = ePress.getDostepniAutorzy().get(i);
+
                                                     System.out.println("Podaj wynagrodzenie");
                                                     userInput4 = keyboard.nextInt();
                                                     eater = keyboard.nextLine();
@@ -189,15 +200,22 @@ public class Main {
                                                     eater = keyboard.nextLine();
                                                     System.out.println("Podaj rodzaj pozycji");
                                                     userInput5 = keyboard.nextLine();
-                                                    Umowa umowa1 = new UmowaODzielo(userInput4, new Ksiazka(userInput3,tripleDouble,userInput5));
-                                                    Autor autor1 = new Autor(userInput2,userInput1);
-                                                    autor1.zawrzyjUmowe(umowa1);
+                                                    Ksiazka ksiazka = new Ksiazka(userInput3,tripleDouble,userInput5);
+                                                    i = pozycje.indexOf(ksiazka);
+                                                    Umowa umowa1 = new UmowaODzielo(userInput4, ksiazka);
+                                                    umowy.add(umowa1);
+                                                    autor.zawrzyjUmowe(umowa1);
+                                                    pozycje.remove(i);
                                                     break;
                                                 case 2:
                                                     System.out.println("Podaj imie autora");
                                                     userInput1 = keyboard.nextLine();
                                                     System.out.println("Podaj nazwisko autora");
                                                     userInput2 = keyboard.nextLine();
+
+                                                    i = ePress.znajdzAutora(new Autor(userInput1, userInput2));
+                                                    autor = ePress.getDostepniAutorzy().get(i);
+
                                                     System.out.println("Podaj wynagrodzenie");
                                                     userInput4 = keyboard.nextInt();
                                                     eater = keyboard.nextLine();
@@ -205,16 +223,15 @@ public class Main {
                                                     userChoice = keyboard.nextInt();
                                                     eater = keyboard.nextLine();
                                                     UmowaOPrace umowa3 = new UmowaOPrace(userInput4, userChoice);
-                                                    Autor autor2 = new Autor(userInput2,userInput1);
-                                                    autor2.zawrzyjUmowe(umowa3);
-                                                    autor2.przejrzyjUmowy();
+                                                    umowy.add(umowa3);
+                                                    autor.zawrzyjUmowe(umowa3);
                                                     break;
                                                 default:
                                                     break;
                                             }
                                             break;
                                         case 2:
-                                            //metoda do przegladania umow
+                                            ePress.przejrzyjAutorow();
                                             break;
                                         case 3:
                                             zarzad2Running = false;
