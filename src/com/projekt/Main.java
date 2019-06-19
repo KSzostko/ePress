@@ -383,6 +383,10 @@ public class Main {
                                         userInput1 = keyboard.nextLine();
                                         System.out.println("Podaj nazwisko autora");
                                         userInput2 = keyboard.nextLine();
+
+                                        int i = ePress.znajdzAutora(new Autor(userInput1, userInput2));
+                                        Autor autor = ePress.getDostepniAutorzy().get(i);
+
                                         System.out.println("Podaj tytul pozycji literackiej");
                                         userInput3 = keyboard.nextLine();
                                         System.out.println("Podaj cene pozycji literackiej");
@@ -392,14 +396,22 @@ public class Main {
                                         userInput5 = keyboard.nextLine();
                                         System.out.println("Podaj ilosc egzemplarzy do wydruku");
                                         userChoice = keyboard.nextInt();
+
+                                        Czasopismo czasopismo = new Czasopismo(userInput3, tripleDouble, userInput5);
                                         eater = keyboard.nextLine();
-                                        Zlecenie zlecenie1 = new Zlecenie(new Czasopismo(userInput3,tripleDouble,userInput5),new Autor(userInput2,userInput1),userChoice);
+                                        Zlecenie zlecenie1 = new Zlecenie(czasopismo,autor,userChoice);
+
                                         System.out.println("Podaj nazwe drukarni");
                                         userInput1 = keyboard.nextLine();
                                         System.out.println("Podaj czego drukarnia nie moze wydrukowac(zostaw puste jesli moze wszystko)");
                                         userInput2 = keyboard.nextLine();
-                                        Drukarnia drukarnia1 = new Drukarnia(userInput1,userInput2);
-                                        drukarnia1.wydrukuj(zlecenie1);
+                                        if(userInput2.equals("")) {
+                                            Drukarnia drukarnia1 = new Drukarnia(userInput1);
+                                            drukarnia1.wydrukuj(zlecenie1);
+                                        } else {
+                                            Drukarnia drukarnia1 = new Drukarnia(userInput1,userInput2);
+                                            drukarnia1.wydrukuj(zlecenie1);
+                                        }
                                         break;
                                     case 2:
                                         System.out.println("Podaj imie autora");

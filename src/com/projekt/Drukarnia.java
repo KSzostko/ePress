@@ -45,7 +45,7 @@ public class Drukarnia {
         }
     }
 
-    private int znajdzZlecenie(Zlecenie zlecenie) {
+    public int znajdzZlecenie(Zlecenie zlecenie) {
         for(int i = 0; i < zlecenia.size(); i++) {
             if(zlecenia.get(i).equals(zlecenie)) {
                 return i;
