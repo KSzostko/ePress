@@ -89,7 +89,7 @@ public class Wydawnictwo {
         return false;
     }
 
-    private int znajdzDrukarnie(Drukarnia drukarnia) {
+    public int znajdzDrukarnie(Drukarnia drukarnia) {
         for(int i = 0; i < drukarnie.size(); i++) {
             if(drukarnie.get(i).equals(drukarnia)) {
                 return i;
