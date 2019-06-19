@@ -38,4 +38,14 @@ public class Zlecenie {
             return czyOPrace;
         }
     }
+
+    @Override
+    public boolean equals(Object zlecenie) {
+        if(((Zlecenie) zlecenie).getZleconaPozycja().getTytul().equals(zleconaPozycja.getTytul()) &&
+                ((Zlecenie) zlecenie).getIloscEgzemplarzy() == iloscEgzemplarzy) {
+            return true;
+        }
+
+        return false;
+    }
 }
