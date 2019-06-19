@@ -43,8 +43,8 @@ public class Sklep {
 
     private int roznicaIlosci(Zlecenie zlecenie) {
         for(int i = 0; i < dostepnePozycje.size(); i++) {
-            if(dostepnePozycje.get(i).getZleconaPozycja() == zlecenie.getZleconaPozycja() &&
-            dostepnePozycje.get(i).getAutor() == zlecenie.getAutor() &&
+            if(dostepnePozycje.get(i).getZleconaPozycja().getTytul().equals(zlecenie.getZleconaPozycja().getTytul()) &&
+            dostepnePozycje.get(i).getAutor().getNazwisko().equals(zlecenie.getAutor().getNazwisko()) &&
              dostepnePozycje.get(i).getIloscEgzemplarzy() != zlecenie.getIloscEgzemplarzy()) {
                 return i;
             }
@@ -73,7 +73,8 @@ public class Sklep {
         int j = roznicaIlosci(zlecenie);
 
         if(i >= 0) {
-            dostepnePozycje.remove(zlecenie);
+            // zmieniono zlecenie na i w remove
+            dostepnePozycje.remove(i);
 
             return true;
         } else if(j >= 0 && dostepnePozycje.get(j).getIloscEgzemplarzy() >= zlecenie.getIloscEgzemplarzy()) {

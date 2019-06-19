@@ -406,10 +406,12 @@ public class Main {
                                         System.out.println("Podaj czego drukarnia nie moze wydrukowac(zostaw puste jesli moze wszystko)");
                                         userInput2 = keyboard.nextLine();
                                         if(userInput2.equals("")) {
-                                            Drukarnia drukarnia1 = new Drukarnia(userInput1);
+                                            i = ePress.znajdzDrukarnie(new Drukarnia(userInput1));
+                                            Drukarnia drukarnia1 = ePress.getDrukarnie().get(i);
                                             drukarnia1.wydrukuj(zlecenie1);
                                         } else {
-                                            Drukarnia drukarnia1 = new Drukarnia(userInput1,userInput2);
+                                            i = ePress.znajdzDrukarnie(new Drukarnia(userInput1));
+                                            Drukarnia drukarnia1 = ePress.getDrukarnie().get(i);
                                             drukarnia1.wydrukuj(zlecenie1);
                                         }
                                         break;
