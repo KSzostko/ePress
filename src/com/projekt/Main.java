@@ -256,15 +256,25 @@ public class Main {
                                         userInput1 = keyboard.nextLine();
                                         System.out.println("Podaj czego drukarnia nie moze wydrukowac(zostaw puste jesli moze wszystko)");
                                         userInput2 = keyboard.nextLine();
-                                        Drukarnia drukarnia3 = new Drukarnia(userInput1, userInput2);
-                                        ePress.dodajDrukarnie(drukarnia3);
+                                        if(userInput2.equals("")) {
+                                            Drukarnia drukarnia3 = new Drukarnia(userInput1);
+                                            ePress.dodajDrukarnie(drukarnia3);
+                                        } else {
+                                            Drukarnia drukarnia3 = new Drukarnia(userInput1, userInput2);
+                                            ePress.dodajDrukarnie(drukarnia3);
+                                        }
+
                                         break;
                                     case 2:
                                         System.out.println("Podaj nazwe drukarni");
                                         userInput1 = keyboard.nextLine();
                                         System.out.println("Podaj czego drukarnia nie moze wydrukowac(zostaw puste jesli moze wszystko)");
                                         userInput2 = keyboard.nextLine();
-                                        ePress.usunDrukarnie(new Drukarnia(userInput1,userInput2));
+                                        if(userInput2.equals("")) {
+                                            ePress.usunDrukarnie(new Drukarnia(userInput1));
+                                        } else {
+                                            ePress.usunDrukarnie(new Drukarnia(userInput1,userInput2));
+                                        }
                                         break;
                                     case 3:
                                         ePress.przejrzyjDrukarnie();
