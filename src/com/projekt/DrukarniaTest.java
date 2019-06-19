@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class DrukarniaTest {
-    
+
     // czy zlecenie się nie doda, gdy drukarnia nie będzie drukowała tego typu książek
     @Test
     public void wydrukuj_zleceniaDrukarni1() {

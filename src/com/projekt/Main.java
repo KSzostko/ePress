@@ -138,7 +138,7 @@ public class Main {
                                             userInput1 = keyboard.nextLine();
                                             System.out.println("Podaj nazwisko:");
                                             userInput2 = keyboard.nextLine();
-                                            Autor autor1 = new Autor(userInput2, userInput1);
+                                            Autor autor1 = new Autor(userInput1, userInput2);
                                             ePress.dodajAutora(autor1);
                                             break;
                                         case 2:
@@ -146,7 +146,7 @@ public class Main {
                                             userInput1 = keyboard.nextLine();
                                             System.out.println("Podaj nazwisko:");
                                             userInput2 = keyboard.nextLine();
-                                            ePress.usunAutora(new Autor(userInput2,userInput1));
+                                            ePress.usunAutora(new Autor(userInput1,userInput2));
                                             break;
                                         case 3:
                                             ePress.przejrzyjAutorow();
